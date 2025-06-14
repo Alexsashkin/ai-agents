@@ -115,7 +115,7 @@ After completing the installation steps above, simply follow the steps below to 
    
    **Ollama URL**: http://ollama:11434
 
-   **Postgres**: use DB, username, and password from .env. Host is postgres
+   **Postgres**: use DB, username, and password from n8n/.env. Host is postgres
 
    **Qdrant URL**: http://qdrant:6333 (API key can be whatever since this is running locally)
 
