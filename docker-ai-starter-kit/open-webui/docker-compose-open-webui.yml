@@ -1,0 +1,20 @@
+volumes:
+  open-webui_storage:
+
+networks:
+  demo:
+
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    networks: ['demo']
+    restart: unless-stopped
+    environment:
+      - HF_HUB_OFFLINE=1
+    container_name: open-webui
+    ports:
+      - "3000:8080"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - open-webui_storage:/app/backend/data
