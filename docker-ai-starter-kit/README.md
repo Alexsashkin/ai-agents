@@ -113,11 +113,11 @@ After completing the installation steps above, simply follow the steps below to 
 
 2. Create credentials for every service:
    
-   **Ollama URL**: http://ollama:11434
+   **Ollama URL**: http://localhost:11434
 
    **Postgres**: use DB, username, and password from n8n/.env. Host is postgres
 
-   **Qdrant URL**: http://qdrant:6333 (API key can be whatever since this is running locally)
+   **Qdrant URL**: http://localhost:6333 (API key can be whatever since this is running locally)
 
    **Google Drive**: Follow [this guide from n8n](https://docs.n8n.io/integrations/builtin/credentials/google/).
    Don't use localhost for the redirect URI, just use another domain you have, it will still work!
@@ -135,7 +135,9 @@ After completing the installation steps above, simply follow the steps below to 
 
 * **n8n**: visit <http://localhost:5678/> in your browser.
 
-* **Open WebUI**: visit <http://localhost:3000/>.
+* **Open WebUI**: visit <http://localhost:3000/> in your browser.
+
+* **Qdrant Dashboard**: visit http://localhost:6333/dashboard in your browser.
 
 
 With your n8n instance, you’ll have access to over 400 integrations and a
