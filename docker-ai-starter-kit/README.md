@@ -32,6 +32,10 @@ Engineering world, handles large amounts of data safely.
 ✅ [**Open WebUI**](https://openwebui.com/) - A chat interface (similar to ChatGPT) 
 for private communication with your local LLMs.
 
+✅ [**Selenium**](https://www.selenium.dev/) - Selenium automates browsers.
+
+✅ [**Flaresolverf**](https://flaresolverr.com/) - Web Scraping.
+
 ## Installation
 
 ### Cloning the Repository
@@ -142,6 +146,8 @@ After completing the installation steps above, simply follow the steps below to 
 * **Qdrant Dashboard**: visit http://localhost:6333/dashboard in your browser.
 
 * **pgAdmin**: visit http://localhost:8080/ in your browser.
+
+* **Selenium Grid**: visit http://localhost:4444/ui/ in your browser.
 
 
 With your n8n instance, you’ll have access to over 400 integrations and a
