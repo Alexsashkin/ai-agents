@@ -1,6 +1,7 @@
 volumes:
   n8n_storage:
   postgres_storage:
+  pgadmin_data_storage:
 
 networks:
   demo:
@@ -30,6 +31,8 @@ services:
     hostname: postgres
     networks: ['demo']
     restart: unless-stopped
+    ports:
+      - 5432:5432
     environment:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
@@ -41,6 +44,21 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
+
+  pgadmin:
+    image: dpage/pgadmin4
+    hostname: pgadmin
+    restart: always
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}
+    ports:
+      - "8080:80"
+    volumes:
+      - pgadmin_data_storage:/var/lib/pgadmin
+    depends_on:
+      postgres:
+        condition: service_healthy
 
   n8n-import:
     <<: *service-n8n
@@ -59,14 +77,19 @@ services:
   n8n:
     <<: *service-n8n
     hostname: n8n
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: n8n
     restart: unless-stopped
     ports:
       - 5678:5678
     volumes:
       - n8n_storage:/home/node/.n8n
-      - ./demo-data:/demo-data
-      - ./shared:/data/shared
+      - ./demo-data:/home/node/.n8n/demo-data
+      - ./python-scripts:/home/node/.n8n/python-scripts
+      - ./shared:/home/node/.n8n/data/shared
+      - ./temp:/home/node/.n8n/temp
     depends_on:
       postgres:
         condition: service_healthy
