@@ -27,6 +27,8 @@ store with an comprehensive API
 ✅ [**PostgreSQL**](https://www.postgresql.org/) -  Workhorse of the Data
 Engineering world, handles large amounts of data safely.
 
+✅ [**pgAdmin**](https://www.pgadmin.org/) - Open-source administration and development platform for PostgreSQL.
+
 ✅ [**Open WebUI**](https://openwebui.com/) - A chat interface (similar to ChatGPT) 
 for private communication with your local LLMs.
 
@@ -138,6 +140,8 @@ After completing the installation steps above, simply follow the steps below to 
 * **Open WebUI**: visit <http://localhost:3000/> in your browser.
 
 * **Qdrant Dashboard**: visit http://localhost:6333/dashboard in your browser.
+
+* **pgAdmin**: visit http://localhost:8080/ in your browser.
 
 
 With your n8n instance, you’ll have access to over 400 integrations and a

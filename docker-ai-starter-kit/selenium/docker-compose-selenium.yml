@@ -1,0 +1,58 @@
+networks:
+  demo:
+
+services:
+  # (Optional)
+  # chrome:
+  #   image: selenium/node-chrome:beta
+  #   restart: always
+  #   networks: ['demo']
+  #   platform: linux/amd64
+  #   shm_size: 2gb
+  #   depends_on:
+  #     - selenium-hub
+  #   environment:
+  #     - SE_EVENT_BUS_HOST=selenium-hub
+
+  # (Optional)
+  # edge:
+  #   image: selenium/node-edge:beta
+  #   restart: always
+  #   networks: ['demo']
+  #   platform: linux/amd64
+  #   shm_size: 2gb
+  #   depends_on:
+  #     - selenium-hub
+  #   environment:
+  #     - SE_EVENT_BUS_HOST=selenium-hub
+
+  # (Optional)
+  # firefox:
+  #   image: selenium/node-firefox:beta
+  #   restart: always
+  #   networks: ['demo']
+  #   shm_size: 2gb
+  #   depends_on:
+  #     - selenium-hub
+  #   environment:
+  #     - SE_EVENT_BUS_HOST=selenium-hub
+
+  chrome-for-testing:
+    image: selenium/node-chrome-for-testing:latest
+    networks: ['demo']
+    platform: linux/amd64
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+
+  selenium-hub:
+    image: selenium/hub:latest
+    networks: ['demo']
+    container_name: selenium-hub
+    ports:
+      - "4442:4442"
+      - "4443:4443"
+      - "4444:4444"
+      - "7900:7900"

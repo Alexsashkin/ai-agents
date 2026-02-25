@@ -1,0 +1,22 @@
+volumes:
+  flaresolverr_storage:
+
+networks:
+  demo:
+
+services:
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    hostname: flaresolverr
+    container_name: flaresolverr
+    networks: ['demo']
+    environment:
+      - LOG_LEVEL=${LOG_LEVEL:-info} # Set logging level (e.g., debug, info, warn, error)
+      - LOG_HTML=${LOG_HTML:-false} # Enable/disable logging of HTML content
+      - CAPTCHA_SOLVER=${CAPTCHA_SOLVER:-none} # Configure automatic captcha solver if available
+      - TZ=Europe/London # Set the timezone for logs and the browser
+    ports:
+      - "${PORT:-8191}:8191"
+    restart: unless-stopped
+    volumes:
+      - flaresolverr_storage:/flaresolverr/storage

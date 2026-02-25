@@ -3,6 +3,8 @@ include:
   - ollama/docker-compose-ollama.yml
   - qdrant/docker-compose-qdrant.yml
   - open-webui/docker-compose-open-webui.yml
+  - selenium/docker-compose-selenium.yml
+  - flaresolverr/docker-compose-flaresolverr.yml
 
 networks:
   demo:
